@@ -1,0 +1,32 @@
+<div class="card border-primary mb-3" *ngIf="eliminarDemonio">
+    <div class="card-header">Demonio</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Lista de demonios</h5>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Lugar</th>
+                    <th>Foto</th>
+                    <th>Parte que posee</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let demonio of demonios">
+                    <td>{{demonio.nombre}}</td>
+                    <td>{{demonio.lugar}}</td>
+                    <td>{{demonio.foto}}</td>
+                    <td>{{demonio.parteCuerpo.nombre}}</td>
+                    <td><button name="eliminar" (click)="delete(demonio)"
+                        class="btn btn-danger">Derrotar</button>
+                    <button name="editar" [routerLink]="['/formDemonio',demonio.id]"
+                        class="btn btn-primary">Modificar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div *ngIf="!eliminarDemonio">
+    <app-formulario-pelea [eliminarDemonio]="eliminarDemonio2" (salida)="cambiarV($event)"></app-formulario-pelea>
+</div>

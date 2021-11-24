@@ -1,0 +1,43 @@
+<div class= "card bg-dark text-white">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="lugar" class="col-form-label col-sm20">lugar</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" required
+                    name="lugar" placeholder="Lugar de pelea" [(ngModel)]="pelea.lugar"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="ganador" class="col-form-label col-sm20">ganador</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" required 
+                    name="ganador" placeholder="Ganador de la pelea" [(ngModel)]="pelea.ganador"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="cuerpo" class="col-form-label col-sm20">Demonio</label>
+                <div class="col-sm-6">
+                    <select class="form-control" required name="demonio" placeholder="demonio combatiente"
+                    [(ngModel)]="pelea.demonio">
+                        <option *ngFor="let demonio of demonios" [ngValue]="demonio" (click)="elegirDemonio(demonio)">
+                            {{demonio.nombre}}
+                        </option>
+                    
+                </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button"
+                    (click)="create()" *ngIf="!pelea.id else elseblock">Registrar</button>
+                    <ng-template #elseblock>
+                        <button class="btn btn-primary" role="button"
+                    (click)="update()">Modificar</button>
+                    </ng-template>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

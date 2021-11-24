@@ -1,0 +1,27 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Pelea</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Registro de peleas</h5>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Lugar</th>
+                    <th>Ganador</th>
+                    <th>Demonio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pelea of peleas">
+                    <td>{{pelea.lugar}}</td>
+                    <td>{{pelea.ganador}}</td>
+                    <td>{{pelea.demonio.nombre}}</td>
+                    <td><button name="eliminar" (click)="delete(pelea)"
+                        class="btn btn-danger">Eliminar</button>
+                    <button name="editar" [routerLink]="['/formPelea',pelea.id]"
+                        class="btn btn-primary">Modificar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

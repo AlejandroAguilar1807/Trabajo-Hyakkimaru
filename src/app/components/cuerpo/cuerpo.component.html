@@ -1,0 +1,23 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Cuerpo</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Lista partes del cuerpo</h5>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="atributos">Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cuerpo of cuerpos">
+                    <td>{{cuerpo.nombre}}</td>
+                    <td><button name="eliminar" (click)="delete(cuerpo)"
+                        class="btn btn-danger">Destuir</button>
+                    <button name="editar" [routerLink]="['/formCuerpo',cuerpo.id]"
+                        class="btn btn-primary">Modificar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

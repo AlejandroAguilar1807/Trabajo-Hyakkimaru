@@ -1,0 +1,25 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Cuerpo</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Lista articulos de Dodoro</h5>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Procedencia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let articulo of articulos">
+                    <td>{{articulo.nombre}}</td>
+                    <td>{{articulo.procedencia}}</td>
+                    <td><button name="eliminar" (click)="delete(articulo)"
+                        class="btn btn-danger">Destruir</button>
+                    <button name="editar" [routerLink]="['/formArticulo',articulo.id]"
+                        class="btn btn-primary">Arreglar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
